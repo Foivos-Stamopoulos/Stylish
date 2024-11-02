@@ -14,6 +14,7 @@ lifecycleViewmodelKtx = "2.8.6"
 fragmentKtx = "1.8.3"
 hilt = "2.48"
 androidx-hilt = "1.2.0"
+navigationSafeArgsGradlePlugin = "2.8.3"
 retrofit2 = "2.11.0"
 datastore = "1.1.1"
 logging-interceptor = "4.11.0"
@@ -23,6 +24,7 @@ timber = "5.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationSafeArgsGradlePlugin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

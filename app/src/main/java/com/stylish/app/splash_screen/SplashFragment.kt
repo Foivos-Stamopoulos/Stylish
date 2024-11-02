@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.stylish.app.R
+import com.stylish.app.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -19,13 +19,16 @@ class SplashFragment : Fragment() {
         fun newInstance() = SplashFragment()
     }
 
+    private var _binding: FragmentSplashBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: SplashViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+        _binding = FragmentSplashBinding.bind(inflater.inflate(R.layout.fragment_splash, container, false))
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,15 +39,17 @@ class SplashFragment : Fragment() {
 
     private fun subscribe() {
         viewModel.userLoggedIn.observe(viewLifecycleOwner) { isUserLoggedIn->
-            val navOptions: NavOptions = NavOptions.Builder().setPopUpTo(R.id.splashFragment, true).build()
             if (isUserLoggedIn) {
-                findNavController().navigate(R.id.homeFragment, null, navOptions)
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
             } else {
-                findNavController().navigate(R.id.loginFragment, null, navOptions)
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
             }
         }
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }

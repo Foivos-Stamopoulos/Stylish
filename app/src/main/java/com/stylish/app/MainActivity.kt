@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         if (Build.VERSION.SDK_INT >= 30) {
             window.insetsController?.show(WindowInsets.Type.statusBars())
         } else {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
     }
 
