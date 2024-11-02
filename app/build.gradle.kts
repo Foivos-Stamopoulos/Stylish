@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -21,7 +23,16 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            // Development url (in this case it is same with the Production)
+            buildConfigField("String", "BASE_URL", "\"https://fakestoreapi.com\"")
+        }
+
         release {
+            // Production url
+            buildConfigField("String", "BASE_URL", "\"https://fakestoreapi.com\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -38,6 +49,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -59,12 +71,37 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    kapt(libs.dagger.hilt.android.compiler)
+    implementation(libs.squareup.retrofit2)
+    implementation(libs.squareup.retrofit2.converter.gson)
+    implementation(libs.datastore.preferences)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.timber)
 
+    // Local unit tests
+    kaptTest(libs.dagger.hilt.android.compiler)
     testImplementation(libs.junit)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Instrumented tests
+    androidTestImplementation(libs.dagger.hilt.android.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    kaptAndroidTest(libs.dagger.hilt.android.compiler)
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
