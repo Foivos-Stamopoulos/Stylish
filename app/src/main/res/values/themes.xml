@@ -3,6 +3,11 @@
 
     <style name="Theme.Stylish" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:textViewStyle">@style/StylishText</item>
     </style>
 
 </resources>

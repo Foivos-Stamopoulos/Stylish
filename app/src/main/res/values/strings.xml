@@ -1,5 +1,9 @@
 <resources>
 
     <string name="app_name">Stylish</string>
+    <string name="label_login_screen_title">Welcome\nBack!</string>
+    <string name="hint_email">Username or Email</string>
+    <string name="hint_password">Password</string>
+    <string name="button_login">Login</string>
 
 </resources>

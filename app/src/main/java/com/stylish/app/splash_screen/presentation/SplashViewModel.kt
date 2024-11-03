@@ -1,4 +1,4 @@
-package com.stylish.app.splash_screen
+package com.stylish.app.splash_screen.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

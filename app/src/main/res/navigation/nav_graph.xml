@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.stylish.app.splash_screen.SplashFragment"
+        android:name="com.stylish.app.splash_screen.presentation.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -28,7 +28,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.stylish.app.log_in.LoginFragment"
+        android:name="com.stylish.app.log_in.presentation.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
 </navigation>
