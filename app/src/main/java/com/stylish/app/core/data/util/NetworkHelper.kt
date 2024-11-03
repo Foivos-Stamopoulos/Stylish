@@ -33,6 +33,7 @@ object NetworkHelper {
         e: HttpException,
     ): Result<Nothing, DataError.Network> {
         return when(e.code()) {
+            401 -> Result.Error(DataError.Network.UNAUTHORIZED)
             408 -> Result.Error(DataError.Network.REQUEST_TIMEOUT)
             429 -> Result.Error(DataError.Network.TOO_MANY_REQUESTS)
             in 500..599 -> Result.Error(DataError.Network.SERVER_ERROR)

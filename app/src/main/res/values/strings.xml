@@ -4,6 +4,19 @@
     <string name="label_login_screen_title">Welcome\nBack!</string>
     <string name="hint_email">Username or Email</string>
     <string name="hint_password">Password</string>
+
     <string name="button_login">Login</string>
+    <string name="error_required_field">Required</string>
+    <string name="error_invalid_email">Invalid email</string>
+    <string name="error_email_too_big">Must be up to 50 characters in length</string>
+    <string name="error_no_internet">You are currently offline</string>
+    <string name="error_serialization">Could not parse data</string>
+    <string name="error_request_timeout">Request timed out</string>
+    <string name="error_too_many_requests">Rate limit reached</string>
+    <string name="error_server">Something went wrong</string>
+    <string name="error_unauthorized">Incorrect email or password</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_password_too_short">Password too short</string>
+
 
 </resources>

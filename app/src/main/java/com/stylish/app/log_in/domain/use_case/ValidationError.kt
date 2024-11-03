@@ -4,6 +4,10 @@ import com.stylish.app.core.domain.util.Error
 
 sealed interface ValidationError: Error {
 
+    enum class UsernameError: ValidationError {
+        EMPTY
+    }
+
     enum class EmailError: ValidationError {
         EMPTY,
         NOT_VALID_FORMAT,
@@ -11,10 +15,8 @@ sealed interface ValidationError: Error {
     }
 
     enum class PasswordError: ValidationError {
-        TOO_SHORT,
-        NO_UPPERCASE,
-        NO_LOWERCASE,
-        NO_DIGIT
+        EMPTY,
+        TOO_SHORT
     }
 
 }
