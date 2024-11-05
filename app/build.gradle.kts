@@ -86,6 +86,8 @@ dependencies {
     implementation(libs.datastore.preferences)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.timber)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
 
     // Local unit tests
     kaptTest(libs.dagger.hilt.android.compiler)

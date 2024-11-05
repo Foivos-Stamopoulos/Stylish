@@ -26,5 +26,8 @@ fun DataError.asUiText(): UiText {
         DataError.Network.UNKNOWN -> {
             UiText.StringResource(R.string.error_unknown)
         }
+        DataError.Generic.UNKNOWN -> {
+            UiText.StringResource(R.string.error_unknown)
+        }
     }
 }

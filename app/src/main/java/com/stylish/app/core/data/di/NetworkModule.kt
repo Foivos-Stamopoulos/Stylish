@@ -48,12 +48,4 @@ object NetworkModule {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideLoginApi(
-        retrofit: Retrofit
-    ): LoginApi {
-        return retrofit.create(LoginApi::class.java)
-    }
-
 }

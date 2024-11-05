@@ -12,4 +12,8 @@ sealed interface DataError: Error {
         UNKNOWN
     }
 
+    enum class Generic: DataError {
+        UNKNOWN
+    }
+
 }
