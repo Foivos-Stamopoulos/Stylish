@@ -13,6 +13,7 @@ import com.stylish.app.R
 import com.stylish.app.core.domain.model.Product
 import com.stylish.app.core.presentation.util.CurrencyFormatter
 import com.stylish.app.core.presentation.util.DimensionHelper
+import com.stylish.app.core.presentation.util.getFragmentAnimationNavOptions
 import com.stylish.app.core.presentation.util.showSnackBar
 import com.stylish.app.databinding.FragmentProductDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,28 +64,37 @@ class ProductDetailFragment : Fragment() {
                 showSnackBar(uiText.asString(requireContext()), binding.root)
             }
         }
+
+        viewModel.openEditProductScreen.observe(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { product ->
+                openEditProductScreen(product)
+            }
+        }
     }
 
     private fun setupProductDetails(product: Product) {
-        Glide.with(this).load(product.image).into(binding.imageIv)
+        setupImage(product.image)
+        binding.titleTv.text = product.title
+        binding.categoryTv.text = product.category
+        binding.priceTv.text = CurrencyFormatter.formatPrice(product.price)
+        setupDescription(product.description)
+    }
 
-        val width = DimensionHelper.dpToPx(DimensionHelper.getFullScreenWidth().toFloat(), requireContext()) - (resources.getDimension(R.dimen.content_padding) * 2).toInt()
+    private fun setupImage(imageUrl: String) {
+        val width = DimensionHelper.dpToPx(
+            DimensionHelper.getFullScreenWidth().toFloat(),
+            requireContext()) - (resources.getDimension(R.dimen.content_padding) * 2).toInt()
         val height = DimensionHelper.dpToPx(213f, requireContext())
 
         val placeholderDrawable = ResourcesCompat.getDrawable(resources, R.drawable.product_image_placeholder, null)
         placeholderDrawable!!.setBounds(0,0, width, height)
 
         Glide.with(this)
-            .load(product.image)
+            .load(imageUrl)
             .override(width, height)
             .placeholder(placeholderDrawable)
             .fitCenter()
             .into(binding.imageIv)
-
-        binding.titleTv.text = product.title
-        binding.categoryTv.text = product.category
-        binding.priceTv.text = CurrencyFormatter.formatPrice(product.price)
-        setupDescription(product.description)
     }
 
     private fun setupToolbar() {
@@ -96,10 +106,17 @@ class ProductDetailFragment : Fragment() {
         binding.toolbar.inflateMenu(R.menu.menu_product_detail)
         binding.toolbar.setOnMenuItemClickListener { item ->
             if (item?.itemId == R.id.action_edit) {
-                // Navigate to Edit Product screen
+                viewModel.onEditProductClick()
             }
             true
         }
+    }
+
+    private fun openEditProductScreen(product: Product) {
+        findNavController().navigate(
+            ProductDetailFragmentDirections.actionProductDetailFragmentToEditProductFragment(product),
+            getFragmentAnimationNavOptions()
+        )
     }
 
     private fun setupDescription(text: String) {

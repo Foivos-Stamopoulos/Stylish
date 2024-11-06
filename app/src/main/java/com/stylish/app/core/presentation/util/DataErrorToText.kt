@@ -18,7 +18,7 @@ fun DataError.asUiText(): UiText {
             UiText.StringResource(R.string.error_too_many_requests)
         }
         DataError.Network.SERVER_ERROR -> {
-            UiText.StringResource(R.string.error_server)
+            UiText.StringResource(R.string.error_generic)
         }
         DataError.Network.UNAUTHORIZED -> {
             UiText.StringResource(R.string.error_unauthorized)

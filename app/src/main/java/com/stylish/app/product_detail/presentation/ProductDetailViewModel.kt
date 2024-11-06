@@ -30,6 +30,9 @@ class ProductDetailViewModel @Inject constructor(
     private val _snackBarMessage = MutableLiveData<Event<UiText?>>()
     val snackBarMessage: LiveData<Event<UiText?>> get() = _snackBarMessage
 
+    private val _openEditProductScreen = MutableLiveData<Event<Product>>()
+    val openEditProductScreen: LiveData<Event<Product>> get() = _openEditProductScreen
+
     private val productId = ProductDetailFragmentArgs.fromSavedStateHandle(savedStateHandle).productId
 
     fun start() {
@@ -46,4 +49,11 @@ class ProductDetailViewModel @Inject constructor(
             _isLoading.value = Event(false)
         }
     }
+
+    fun onEditProductClick() {
+        product.value?.let { product ->
+            _openEditProductScreen.value = Event(product)
+        }
+    }
+
 }

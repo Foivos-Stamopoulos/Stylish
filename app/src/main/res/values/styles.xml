@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="LoginTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxCornerRadiusTopStart">10dp</item>
         <item name="boxCornerRadiusTopEnd">10dp</item>
         <item name="boxCornerRadiusBottomStart">10dp</item>
@@ -16,9 +16,23 @@
         <item name="boxStrokeColor">#A8A8A9</item>
     </style>
 
+    <style name="EditProductTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/content_padding</item>
+        <item name="android:layout_marginEnd">@dimen/content_padding</item>
+        <item name="errorEnabled">true</item>
+        <item name="errorIconDrawable">@drawable/ic_alert</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">#A8A8A9</item>
+    </style>
+
     <style name="StylishButton" parent="Widget.MaterialComponents.Button">
         <item name="cornerRadius">8dp</item>
-        <!--<item name="fontFamily">@font/untitled_sans_regular</item>-->
         <item name="textAllCaps">false</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:textSize">16sp</item>
