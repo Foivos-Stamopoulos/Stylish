@@ -32,11 +32,7 @@ class HomeViewModel @Inject constructor(
     override val effect: Flow<HomeContract.Effect>
         get() = _effect.receiveAsFlow()
 
-    init {
-        start()
-    }
-
-    private fun start() {
+    fun start() {
         _state.update { it.copy(isLoading = true) }
         viewModelScope.launch {
             val deferredAllCategories = async { productRepository.getAllCategories() }

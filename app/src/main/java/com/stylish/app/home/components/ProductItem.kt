@@ -53,7 +53,7 @@ fun ProductItem(
                 .size(170.dp, 124.dp)
                 .clip(RoundedCornerShape(10.dp)),
             model = product.image,
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.Inside,
             contentDescription = stringResource(id = R.string.content_description_category_image),
             placeholder = BrushPainter(
                 Brush.linearGradient(

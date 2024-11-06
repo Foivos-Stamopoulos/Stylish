@@ -88,6 +88,7 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.coil.compose)
     implementation(libs.coil.network)
+    implementation(libs.bumptech.glide)
 
     // Local unit tests
     kaptTest(libs.dagger.hilt.android.compiler)

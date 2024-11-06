@@ -3,6 +3,7 @@ package com.stylish.app.core.data.util
 import com.stylish.app.core.domain.util.DataError
 import com.stylish.app.core.domain.util.Result
 import retrofit2.HttpException
+import java.net.UnknownHostException
 import java.nio.channels.UnresolvedAddressException
 import kotlin.coroutines.cancellation.CancellationException
 
@@ -10,7 +11,7 @@ object NetworkHelper {
 
     fun exceptionToErrorResult(e: Exception): Result<Nothing, DataError.Network> {
         return when (e) {
-            is UnresolvedAddressException -> {
+            is UnresolvedAddressException, is UnknownHostException -> {
                 e.printStackTrace()
                 Result.Error(DataError.Network.NO_INTERNET)
             }

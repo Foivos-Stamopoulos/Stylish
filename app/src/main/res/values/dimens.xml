@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="progress_bar">24dp</dimen>
+    <dimen name="content_padding">16dp</dimen>
 
 </resources>

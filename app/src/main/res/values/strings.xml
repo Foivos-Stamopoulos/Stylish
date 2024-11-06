@@ -5,17 +5,22 @@
     <string name="label_all_featured">All Featured</string>
     <string name="label_promotion_discount">50–40% OFF</string>
     <string name="label_promotion_text">Now in (product)\nAll colours</string>
+    <string name="label_product_description">Product details</string>
+    <string name="label_edit_product">Edit</string>
+    <string name="label_more">More</string>
+    <string name="label_less">Less</string>
+
     <string name="button_promotion">Shop Now</string>
+    <string name="button_login">Login</string>
 
     <string name="hint_email">Username or Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_search_bar">Search any Product..</string>
 
-    <string name="button_login">Login</string>
     <string name="error_required_field">Required</string>
     <string name="error_invalid_email">Invalid email</string>
     <string name="error_email_too_big">Must be up to 50 characters in length</string>
-    <string name="error_no_internet">You are currently offline</string>
+    <string name="error_no_internet">No internet connection</string>
     <string name="error_serialization">Could not parse data</string>
     <string name="error_request_timeout">Request timed out</string>
     <string name="error_too_many_requests">Rate limit reached</string>
@@ -28,6 +33,7 @@
     <string name="content_description_user_profile">user profile</string>
     <string name="content_description_search">search</string>
     <string name="content_description_arrow_right">Arrow right</string>
+    <string name="content_description_product_image">Product image</string>
 
 
 </resources>
