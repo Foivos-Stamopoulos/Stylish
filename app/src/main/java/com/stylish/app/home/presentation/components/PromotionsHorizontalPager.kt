@@ -85,8 +85,9 @@ fun PagerItem() {
             .clip(RoundedCornerShape(10.dp))
             .paint(
                 painterResource(id = R.drawable.pager_item_background),
-                contentScale = ContentScale.Inside
-            ),
+                contentScale = ContentScale.Crop
+            )
+        ,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(
