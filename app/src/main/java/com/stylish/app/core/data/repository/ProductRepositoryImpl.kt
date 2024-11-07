@@ -3,6 +3,7 @@ package com.stylish.app.core.data.repository
 import com.stylish.app.core.data.mapper.ProductMapper
 import com.stylish.app.core.data.service.ProductService
 import com.stylish.app.core.domain.model.Product
+import com.stylish.app.core.domain.model.toProductPatchDto
 import com.stylish.app.core.domain.repository.ProductRepository
 import com.stylish.app.core.domain.util.DataError
 import com.stylish.app.core.domain.util.Result
@@ -46,6 +47,10 @@ class ProductRepositoryImpl @Inject constructor(
                 Result.Error(result.error)
             }
         }
+    }
+
+    override suspend fun updateProduct(id: Int, product: Product): Result<Unit, DataError.Network> {
+        return service.updateProduct(id, product.toProductPatchDto())
     }
 
 }

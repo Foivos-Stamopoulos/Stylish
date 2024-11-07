@@ -14,6 +14,8 @@
     <string name="label_price">Price</string>
     <string name="label_category">Category</string>
     <string name="label_description">Description</string>
+    <string name="label_select_category">Select Category</string>
+    <string name="message_update_success">Product updated successfully!</string>
 
     <string name="button_promotion">Shop Now</string>
     <string name="button_login">Login</string>
@@ -34,11 +36,13 @@
     <string name="error_unauthorized">Incorrect email or password</string>
     <string name="error_unknown">Unknown error</string>
     <string name="error_password_too_short">Password too short</string>
+    <string name="error_invalid_price">Invalid price</string>
 
     <string name="content_description_category_image">category image</string>
     <string name="content_description_user_profile">user profile</string>
     <string name="content_description_search">search</string>
     <string name="content_description_arrow_right">Arrow right</string>
     <string name="content_description_product_image">Product image</string>
+    <string name="content_description_check">Check</string>
 
 </resources>

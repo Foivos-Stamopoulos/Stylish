@@ -12,4 +12,6 @@ interface ProductRepository {
 
     suspend fun getProductById(id: Int): Result<Product, DataError>
 
+    suspend fun updateProduct(id: Int, product: Product): Result<Unit, DataError.Network>
+
 }

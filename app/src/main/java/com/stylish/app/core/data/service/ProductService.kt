@@ -2,6 +2,7 @@ package com.stylish.app.core.data.service
 
 import com.stylish.app.core.data.api.ProductApi
 import com.stylish.app.core.data.dto.ProductDto
+import com.stylish.app.core.data.dto.ProductPatchDto
 import com.stylish.app.core.data.util.NetworkHelper
 import com.stylish.app.core.domain.util.DataError
 import com.stylish.app.core.domain.util.Result
@@ -33,6 +34,15 @@ class ProductService @Inject constructor(
         return try {
             val productDto = api.fetchProductById(id)
             Result.Success(productDto)
+        } catch (e: Exception) {
+            NetworkHelper.exceptionToErrorResult(e)
+        }
+    }
+
+    suspend fun updateProduct(id: Int, productPatchDto: ProductPatchDto): Result<Unit, DataError.Network> {
+        return try {
+            api.updateProduct(id, productPatchDto)
+            Result.Success(Unit)
         } catch (e: Exception) {
             NetworkHelper.exceptionToErrorResult(e)
         }

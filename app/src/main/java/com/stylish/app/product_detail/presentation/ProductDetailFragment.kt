@@ -13,6 +13,7 @@ import com.stylish.app.R
 import com.stylish.app.core.domain.model.Product
 import com.stylish.app.core.presentation.util.CurrencyFormatter
 import com.stylish.app.core.presentation.util.DimensionHelper
+import com.stylish.app.core.presentation.util.checkConnection
 import com.stylish.app.core.presentation.util.getFragmentAnimationNavOptions
 import com.stylish.app.core.presentation.util.showSnackBar
 import com.stylish.app.databinding.FragmentProductDetailBinding
@@ -67,7 +68,7 @@ class ProductDetailFragment : Fragment() {
 
         viewModel.openEditProductScreen.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { product ->
-                openEditProductScreen(product)
+                checkConnection({ openEditProductScreen(product) }, binding.root)
             }
         }
     }
