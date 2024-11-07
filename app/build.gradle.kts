@@ -92,10 +92,15 @@ dependencies {
     implementation(libs.bumptech.glide)
 
     // Local unit tests
-    kaptTest(libs.dagger.hilt.android.compiler)
-    testImplementation(libs.junit)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(libs.junit)
+    testImplementation(libs.io.mockK)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.okhttp3.mockwebserver)
+    testImplementation(libs.junit.jupiter.api)
+    kaptTest(libs.dagger.hilt.android.compiler)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 
     // Instrumented tests
     androidTestImplementation(libs.dagger.hilt.android.testing)

@@ -15,16 +15,24 @@ class LoginRepositoryImpl @Inject constructor(
     private val dataStoreManager: DataStoreManager
 ) : LoginRepository {
 
-    override suspend fun login(username: String, password: String): Result<Unit, DataError.Network> {
+    override suspend fun login(username: String, password: String): Result<Unit, DataError> {
         return when (val result = loginService.login(username, password)) {
             is Result.Success -> {
                 val userLogin = userLoginMapper.mapFromEntity(result.data)
-                dataStoreManager.storeValue(Constants.PREFS_TOKEN, userLogin.token)
-                Result.Success(Unit)
+                try {
+                    dataStoreManager.storeValue(Constants.PREFS_TOKEN, userLogin.token)
+                    Result.Success(Unit)
+                } catch (e: Exception) {
+                    Result.Error(DataError.Generic.UNKNOWN)
+                }
             }
             is Result.Error -> {
-                dataStoreManager.removeValue(Constants.PREFS_TOKEN)
-                Result.Error(result.error)
+                try {
+                    dataStoreManager.removeValue(Constants.PREFS_TOKEN)
+                    Result.Error(result.error)
+                } catch (e: Exception) {
+                    Result.Error(DataError.Generic.UNKNOWN)
+                }
             }
         }
     }

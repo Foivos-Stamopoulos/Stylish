@@ -5,6 +5,6 @@ import com.stylish.app.core.domain.util.Result
 
 interface LoginRepository {
 
-    suspend fun login(username: String, password: String): Result<Unit, DataError.Network>
+    suspend fun login(username: String, password: String): Result<Unit, DataError>
 
 }
