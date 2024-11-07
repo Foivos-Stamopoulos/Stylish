@@ -1,4 +1,4 @@
-package com.stylish.app.home.components
+package com.stylish.app.home.presentation.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -29,8 +29,8 @@ import coil3.compose.AsyncImage
 import com.stylish.app.R
 import com.stylish.app.core.domain.model.Product
 import com.stylish.app.core.presentation.util.CurrencyFormatter
-import com.stylish.app.home.HomeContract
-import com.stylish.app.home.preview_data.ProductProvider
+import com.stylish.app.home.presentation.HomeContract
+import com.stylish.app.home.presentation.preview_data.ProductProvider
 import com.stylish.app.ui.theme.StylishTheme
 
 

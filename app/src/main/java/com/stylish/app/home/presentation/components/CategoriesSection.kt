@@ -1,4 +1,4 @@
-package com.stylish.app.home.components
+package com.stylish.app.home.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.stylish.app.home.components
+package com.stylish.app.home.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,12 +18,14 @@ import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.stylish.app.R
+import com.stylish.app.home.presentation.util.TestTags
 import com.stylish.app.ui.theme.StylishTheme
 
 @Composable
@@ -33,7 +35,8 @@ fun SearchBar() {
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .background(White)
-            .border(1.dp, White, RoundedCornerShape(4.dp)),
+            .border(1.dp, White, RoundedCornerShape(4.dp))
+            .testTag(TestTags.SEARCH_BAR),
         placeholder = {
             Text(
                 text = stringResource(id = R.string.hint_search_bar),

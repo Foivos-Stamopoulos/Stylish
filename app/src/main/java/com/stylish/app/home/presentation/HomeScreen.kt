@@ -1,4 +1,4 @@
-package com.stylish.app.home
+package com.stylish.app.home.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -30,11 +31,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.stylish.app.R
-import com.stylish.app.home.components.CategoriesSection
-import com.stylish.app.home.components.ProductsSection
-import com.stylish.app.home.components.PromotionsHorizontalPager
-import com.stylish.app.home.components.SearchBar
-import com.stylish.app.home.preview_data.HomeStateProvider
+import com.stylish.app.home.presentation.components.CategoriesSection
+import com.stylish.app.home.presentation.components.ProductsSection
+import com.stylish.app.home.presentation.components.PromotionsHorizontalPager
+import com.stylish.app.home.presentation.components.SearchBar
+import com.stylish.app.home.presentation.preview_data.HomeStateProvider
+import com.stylish.app.home.presentation.util.TestTags
 import com.stylish.app.ui.theme.StylishTheme
 
 @Composable
@@ -45,10 +47,13 @@ fun HomeScreen(
 ) {
     Scaffold(
         topBar = {
-            Box(modifier = Modifier
+            Box(
+                modifier = Modifier
                 .fillMaxWidth()
                 .background(MaterialTheme.colorScheme.background)
-                .padding(horizontal = 12.dp, vertical = 8.dp)) {
+                .padding(horizontal = 12.dp, vertical = 8.dp)
+                .testTag(TestTags.TOP_BAR)
+            ) {
                 Image(
                     modifier = Modifier
                         .size(111.dp, 31.dp)
@@ -109,7 +114,8 @@ fun HomeScreen(
                 CircularProgressIndicator(
                     modifier = Modifier
                         .size(24.dp)
-                        .align(Alignment.Center),
+                        .align(Alignment.Center)
+                        .testTag(TestTags.PROGRESS_BAR),
                     strokeWidth = 2.dp
                 )
             }

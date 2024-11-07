@@ -1,4 +1,4 @@
-package com.stylish.app.home.preview_data
+package com.stylish.app.home.presentation.preview_data
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.stylish.app.core.domain.model.Product

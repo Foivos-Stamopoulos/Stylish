@@ -1,4 +1,4 @@
-package com.stylish.app.home.components
+package com.stylish.app.home.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.stylish.app.R
+import com.stylish.app.home.presentation.util.TestTags
 import com.stylish.app.ui.theme.StylishTheme
 
 @Composable
@@ -42,7 +44,7 @@ fun PromotionsHorizontalPager() {
     val pagerState = rememberPagerState(pageCount = { 2 })
 
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().testTag(TestTags.HORIZONTAL_PAGER),
     ) {
         HorizontalPager(
             modifier = Modifier.fillMaxWidth(),

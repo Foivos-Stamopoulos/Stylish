@@ -1,4 +1,4 @@
-package com.stylish.app.home.components
+package com.stylish.app.home.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,8 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.stylish.app.core.domain.model.Product
-import com.stylish.app.home.HomeContract
-import com.stylish.app.home.preview_data.ProductsProvider
+import com.stylish.app.home.presentation.HomeContract
+import com.stylish.app.home.presentation.preview_data.ProductsProvider
 import com.stylish.app.ui.theme.StylishTheme
 
 @Composable

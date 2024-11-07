@@ -1,4 +1,4 @@
-package com.stylish.app.home
+package com.stylish.app.home.presentation
 
 import com.stylish.app.core.domain.model.Product
 import com.stylish.app.core.presentation.util.UiText
