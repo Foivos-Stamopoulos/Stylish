@@ -47,6 +47,7 @@ fun HomeScreen(
         topBar = {
             Box(modifier = Modifier
                 .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.background)
                 .padding(horizontal = 12.dp, vertical = 8.dp)) {
                 Image(
                     modifier = Modifier
@@ -74,7 +75,7 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .background(MaterialTheme.colorScheme.background)) {
+        ) {
 
             if (!(state.isLoading && state.categories.isEmpty() && state.products.isEmpty())) {
                 LazyColumn(

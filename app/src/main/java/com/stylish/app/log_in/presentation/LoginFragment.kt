@@ -2,7 +2,6 @@ package com.stylish.app.log_in.presentation
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.stylish.app.R
 import com.stylish.app.core.presentation.util.MyTextWatcher
+import com.stylish.app.core.presentation.util.checkConnection
 import com.stylish.app.core.presentation.util.showSnackBar
 import com.stylish.app.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -85,7 +85,11 @@ class LoginFragment : Fragment() {
         binding.passwordEt.addTextChangedListener(passwordTextWatcher)
 
         binding.logInBtn.setOnClickListener {
-            viewModel.validateCredentials(binding.emailEt.text.toString(), binding.passwordEt.text.toString())
+            checkConnection(
+                {
+                    viewModel.validateCredentials(binding.emailEt.text.toString(), binding.passwordEt.text.toString())
+                },binding.root
+            )
         }
     }
 
